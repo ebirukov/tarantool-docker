@@ -9,7 +9,7 @@ ENV TARANTOOL_VERSION=1.5.5.27 \
     TARANTOOL_DOWNLOAD_URL=https://github.com/tarantool/tarantool.git \
     TARANTOOL_COMMIT=1687c022e7aa93e9c118e1b80e1eac6c429b1010 \
     TARANTOOL_INSTALL_LUADIR=/usr/local/share/tarantool \
-    LUAROCKS_URL=http://keplerproject.github.io/luarocks/releases/luarocks-2.3.0.tar.gz \
+    LUAROCKS_URL=http://luarocks.github.io/luarocks/releases/luarocks-2.3.0.tar.gz \
     TARANTOOL_SNAP_DIR=/var/lib/tarantool \
     TARANTOOL_WAL_DIR=/var/lib/tarantool \
     TARANTOOL_PORT=3301 \
@@ -53,6 +53,7 @@ RUN set -x \
         wget \
     && : "---------- tarantool ----------" \
     && mkdir -p /usr/src/tarantool \
+    && git config --global url.http://.insteadOf git:// \
     && git clone "$TARANTOOL_DOWNLOAD_URL" /usr/src/tarantool \
     && git -C /usr/src/tarantool checkout "$TARANTOOL_COMMIT" \
     && git -C /usr/src/tarantool submodule init \
