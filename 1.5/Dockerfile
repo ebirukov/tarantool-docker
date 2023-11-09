@@ -65,7 +65,7 @@ RUN set -x \
              -DWITH_POSTGRESQL:BOOL=ON \
              -DCMAKE_BUILD_TYPE=RelWithDebInfo \
              -DENABLE_BUNDLED_LIBYAML:BOOL=OFF \
-             -DENABLE_BACKTRACE:BOOL=ON \
+             -DENABLE_BACKTRACE:BOOL=OFF \
              .) \
     && make -C /usr/src/tarantool -j \
     && make -C /usr/src/tarantool install \
