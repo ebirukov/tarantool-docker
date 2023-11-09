@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM alpine:3.9
 MAINTAINER mail@racktear.com
 
 RUN addgroup -S tarantool \
@@ -29,9 +29,9 @@ RUN set -x \
         curl \
         tar \
         zip \
-        mariadb-client-libs \
+        mariadb-client \
         libpq \
-        mariadb-libs \
+        mariadb \
     && apk add --no-cache --virtual .build-deps \
         perl \
         gcc \
